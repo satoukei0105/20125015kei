@@ -1,0 +1,327 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #d7eef8, #0ea4d6);
+    color: #333;
+}
+
+/* ======================
+   Left Menu
+====================== */
+.sidebar {
+    width: 210px;
+    height: 100vh;
+    background: linear-gradient(180deg, #4153df, #1c42bd);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 40px;
+    text-align: center;
+    z-index: 10;
+}
+
+.sidebar h2 {
+    color: white;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    font-size: 16px;
+}
+
+.sidebar a:hover {
+    background: rgba(255,255,255,0.25);
+}
+
+/* ======================
+   Main Area
+====================== */
+.main-content {
+    margin-left: 210px;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+/* ======================
+   Card Design
+====================== */
+.card {
+    width: calc(100vw - 290px);
+    max-width: none;
+    margin: 20px 0;
+    background: rgba(255,255,255,0.85);
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* ホーム画面用のプロフィールの並び */
+.profile-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+h1 {
+    color: #2859c4;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    color: #212376;
+    font-size: 24px;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+/* ======================
+   Profile Image
+====================== */
+.profile-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 30px;
+    animation: d 5.2s ease-out;
+}
+
+@keyframes d {
+    0% {
+        transform: translateY(-300px) rotate(-15deg);
+        opacity: 0;
+    }
+    70% {
+        transform: translateY(0) rotate(5deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+/* ======================
+   Contact Form
+====================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 25px;
+    background: #f3f0ec;
+    font-size: 15px;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 25px;
+    background: #4a9cbf;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #2b30cc;
+}
+
+/* ======================
+   Footer
+====================== */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #555;
+}
+
+/* ======================
+   Loading Line
+====================== */
+.loding-line {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 5px;
+    background-color: #eee;
+    z-index: 999;
+    animation: f 2.5s forwards;
+}
+
+@keyframes f {
+    0%,80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.loding-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgb(6,216,198),
+        rgb(30,150,255)
+    );
+    animation: bar-grow 2s ease-in-out forwards;
+}
+
+@keyframes bar-grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* ======================
+   Fade In
+====================== */
+.sidebar,
+.main-content {
+    animation: s 2.5s forwards;
+}
+
+@keyframes s {
+    0%,50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ======================
+   Circle Menu
+====================== */
+.circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin: 20px auto 40px;
+    flex-wrap: wrap;
+}
+
+.circle-item {
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.circle-item:hover {
+    transform: translateY(-5px);
+}
+
+.circle-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: rgba(255,255,255,0.85);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    margin: 0 auto 12px;
+}
+
+.circle-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.circle-item span {
+    display: block;
+    color: #212376;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ======================
+   Hobby Images
+====================== */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(450px, 1fr));
+    gap: 50px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    /* ★白い枠と影を完全に消すためのリセットコード */
+    background: none !important;      /* 背景の白を消す */
+    box-shadow: none !important;      /* 外側の薄い影を消す */
+    padding: 0 !important;           /* 白枠用についていた内側の余白をゼロにする */
+}
+
+
+.grid-text {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.grid-text h4 {
+    margin: 0 0 8px 0;
+    color: #1c42bd;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.grid-text p {
+    margin: 0;
+    font-size: 20px;
+    color: #e65c00;
+    font-weight: bold;
+}
+
+.image-grid .grid-item img {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.image-grid .grid-item img:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
